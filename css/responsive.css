@@ -1,0 +1,173 @@
+/* ==========================================================================
+   PlaceBot - Responsive Styling (responsive.css)
+   Breakpoints: 1200px, 992px, 768px, 576px
+   ========================================================================== */
+
+/* Large Tablets & Small Desktops (max-width: 1199px) */
+@media (max-width: 1199px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+  
+  .tg-sidebar {
+    width: 320px;
+    min-width: 290px;
+  }
+
+  .quiz-content-grid {
+    grid-template-columns: 1fr 290px;
+  }
+}
+
+/* Medium Tablets & Mobile Devices (max-width: 991px) */
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 3.5rem 0 2.5rem;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats-row {
+    justify-content: center;
+  }
+
+  .floating-chip {
+    display: none;
+  }
+
+  /* Telegram Chat Interface on Tablet/Mobile */
+  .telegram-app-container {
+    height: calc(100vh - 60px);
+    position: relative;
+  }
+
+  .tg-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tg-sidebar.open-sidebar {
+    transform: translateX(0);
+  }
+
+  .header-toggle-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Quiz Layout Stacking */
+  .quiz-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-sidebar-card {
+    position: static;
+    order: 2;
+  }
+
+  /* Result & Progress grids */
+  .stats-metric-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Small Screens / Mobile Phones (max-width: 767px) */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-title {
+    font-size: 1.9rem;
+  }
+
+  .preview-options {
+    grid-template-columns: 1fr;
+  }
+
+  .tg-keyboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tg-messages-viewport {
+    padding: 14px 10px;
+  }
+
+  .msg-bubble {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .tg-chat-input-container {
+    padding: 8px 12px;
+  }
+
+  .poll-footer-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-quiz-nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .stats-metric-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Very Small Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-stats-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .company-badge-wrap {
+    gap: 10px;
+  }
+
+  .company-badge {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .quiz-topbar-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navigator-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

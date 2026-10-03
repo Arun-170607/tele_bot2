@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceBot – Telegram Placement Preparation Chatbot</title>
+  <meta name="description" content="Simulated Telegram chatbot interface for college placement preparation with interactive questions, inline keyboards and instant grading.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: #e6eef5; overflow-y: hidden;">
+
+  <!-- Compact App Header -->
+  <nav class="navbar navbar-expand-lg navbar-placebot py-2" style="height: 65px;">
+    <div class="container-fluid px-3">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <div class="brand-icon-wrap" style="width: 32px; height: 32px; font-size: 1.05rem;">
+          <i class="bi bi-telegram"></i>
+        </div>
+        <span style="font-size: 1.15rem;">PlaceBot</span>
+        <span class="brand-badge"><i class="bi bi-patch-check-fill"></i> CHAT</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="quiz.html" class="btn btn-sm btn-outline-primary rounded-pill d-none d-sm-inline-flex align-items-center gap-1">
+          <i class="bi bi-stopwatch-fill"></i> Mock Test
+        </a>
+        <a href="progress.html" class="btn btn-sm btn-outline-secondary rounded-pill d-none d-sm-inline-flex align-items-center gap-1">
+          <i class="bi bi-graph-up"></i> Progress
+        </a>
+        <a href="index.html" class="btn btn-sm btn-light rounded-circle" title="Exit to Home">
+          <i class="bi bi-house-door-fill text-dark"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Telegram Desktop / Web Application Workspace -->
+  <div class="telegram-app-container">
+
+    <!-- ================= LEFT SIDEBAR ================= -->
+    <aside class="tg-sidebar" id="tgSidebar">
+      <!-- Search Bar -->
+      <div class="tg-sidebar-header">
+        <button class="sidebar-menu-btn" title="Menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="sidebar-search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search bot commands or topics...">
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tg-chat-tabs">
+        <div class="tg-chat-tab active">All Chats</div>
+        <div class="tg-chat-tab">Placement Bots</div>
+        <div class="tg-chat-tab">Channels</div>
+      </div>
+
+      <!-- Chats List -->
+      <div class="tg-chat-list">
+        <!-- Main Bot -->
+        <a href="#" class="tg-chat-item active" data-channel="all">
+          <div class="tg-avatar-wrap">
+            <img src="images/bot-avatar.svg" alt="PlaceBot" class="tg-avatar">
+            <span class="status-dot"></span>
+          </div>
+          <div class="tg-chat-info">
+            <div class="tg-chat-topline">
+              <span class="tg-chat-name">
+                PlaceBot <i class="bi bi-patch-check-fill verified-icon"></i>
+              </span>
+              <span class="tg-chat-time">Just now</span>
+            </div>
+            <div class="tg-chat-preview">
+              <span class="tg-chat-lastmsg text-primary">bot • Ready for questions</span>
+              <span class="tg-chat-badge">Online</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Aptitude Channel -->
+        <a href="#" class="tg-chat-item" data-channel="aptitude">
+          <div class="tg-avatar-wrap">
+            <div class="tg-avatar cat-aptitude"><i class="bi bi-calculator"></i></div>
+          </div>
+          <div class="tg-chat-info">
+            <div class="tg-chat-topline">
+              <span class="tg-chat-name">Aptitude Practice</span>
+              <span class="tg-chat-time">10:30 AM</span>
+            </div>
+            <div class="tg-chat-preview">
+              <span class="tg-chat-lastmsg">Profit/Loss, Time-Work drills</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Reasoning Channel -->
+        <a href="#" class="tg-chat-item" data-channel="reasoning">
+          <div class="tg-avatar-wrap">
+            <div class="tg-avatar cat-reasoning"><i class="bi bi-puzzle"></i></div>
+          </div>
+          <div class="tg-chat-info">
+            <div class="tg-chat-topline">
+              <span class="tg-chat-name">Logical Reasoning</span>
+              <span class="tg-chat-time">Yesterday</span>
+            </div>
+            <div class="tg-chat-preview">
+              <span class="tg-chat-lastmsg">Syllogisms & Number Series</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Verbal Channel -->
+        <a href="#" class="tg-chat-item" data-channel="verbal">
+          <div class="tg-avatar-wrap">
+            <div class="tg-avatar cat-verbal"><i class="bi bi-chat-left-text"></i></div>
+          </div>
+          <div class="tg-chat-info">
+            <div class="tg-chat-topline">
+              <span class="tg-chat-name">Verbal Ability</span>
+              <span class="tg-chat-time">Oct 2</span>
+            </div>
+            <div class="tg-chat-preview">
+              <span class="tg-chat-lastmsg">Grammar & Reading Comprehension</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Technical Channel -->
+        <a href="#" class="tg-chat-item" data-channel="technical">
+          <div class="tg-avatar-wrap">
+            <div class="tg-avatar cat-tech"><i class="bi bi-terminal"></i></div>
+          </div>
+          <div class="tg-chat-info">
+            <div class="tg-chat-topline">
+              <span class="tg-chat-name">Technical & Coding</span>
+              <span class="tg-chat-time">Oct 1</span>
+            </div>
+            <div class="tg-chat-preview">
+              <span class="tg-chat-lastmsg">C++, Python, Java, SQL, OOPs</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Mock Exam Direct -->
+        <a href="quiz.html" class="tg-chat-item">
+          <div class="tg-avatar-wrap">
+            <div class="tg-avatar cat-mock"><i class="bi bi-stopwatch"></i></div>
+          </div>
+          <div class="tg-chat-info">
+            <div class="tg-chat-topline">
+              <span class="tg-chat-name">Mock Exam Simulator</span>
+              <span class="tg-chat-time">Timed</span>
+            </div>
+            <div class="tg-chat-preview">
+              <span class="tg-chat-lastmsg text-danger fw-bold">15-min Placement Assessment ➔</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Commands Bar -->
+      <div class="tg-quick-commands">
+        <h6>Quick Bot Commands</h6>
+        <div class="cmd-chips-wrap">
+          <span class="cmd-chip" data-cmd="/start">/start</span>
+          <span class="cmd-chip" data-cmd="/aptitude">/aptitude</span>
+          <span class="cmd-chip" data-cmd="/reasoning">/reasoning</span>
+          <span class="cmd-chip" data-cmd="/verbal">/verbal</span>
+          <span class="cmd-chip" data-cmd="/technical">/technical</span>
+          <span class="cmd-chip" data-cmd="/mock">/mock</span>
+          <span class="cmd-chip" data-cmd="/progress">/progress</span>
+          <span class="cmd-chip" data-cmd="/help">/help</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= MAIN CHAT AREA ================= -->
+    <main class="tg-main-chat">
+
+      <!-- Telegram Header -->
+      <div class="tg-chat-header">
+        <div class="header-left">
+          <button class="header-toggle-sidebar" id="toggleSidebarBtn" title="Toggle chats">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <div class="header-avatar-wrap">
+            <img src="images/bot-avatar.svg" alt="PlaceBot" class="header-avatar">
+          </div>
+          <div class="header-title-wrap">
+            <h4>
+              PlaceBot <i class="bi bi-patch-check-fill verified-icon"></i>
+            </h4>
+            <div class="header-subtitle">
+              <i class="bi bi-circle-fill" style="font-size: 0.5rem; color: var(--success);"></i> bot • online
+            </div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="header-icon-btn active-audio" id="audioToggleBtn" title="Toggle Sound Feedback">
+            <i class="bi bi-volume-up"></i>
+          </button>
+          <a href="quiz.html" class="btn btn-sm btn-primary rounded-pill px-3 d-flex align-items-center gap-1 shadow-sm">
+            <i class="bi bi-stopwatch-fill"></i> <span class="d-none d-md-inline">Take Mock</span>
+          </a>
+          <button class="header-icon-btn" onclick="window.PlaceBotApp.triggerCommand('/clear')" title="Clear Chat Screen">
+            <i class="bi bi-trash3"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Viewport with classic Telegram Wallpaper -->
+      <div class="tg-messages-viewport" id="chatMessagesViewport">
+        <!-- Date Badge -->
+        <div class="chat-date-pill">TODAY</div>
+
+        <!-- Initial Welcome Message from PlaceBot -->
+        <div class="msg-row incoming">
+          <div class="msg-bubble">
+            <div class="msg-text-content">
+              <p>🤖 <strong>Hello Candidate! Welcome to PlaceBot.</strong></p>
+              <p>I am your personal Telegram placement preparation mentor. I help you solve practice questions with instant explanation hints, mock exams, and company pattern drills.</p>
+              <p>Select a domain below or type <code>/start</code> to begin your preparation session:</p>
+            </div>
+
+            <!-- Telegram Inline Keyboard Buttons -->
+            <div class="tg-inline-keyboard">
+              <div class="tg-keyboard-grid">
+                <button class="tg-btn-action" onclick="window.PlaceBotApp.triggerCommand('/aptitude')">
+                  🔢 Quantitative Aptitude
+                </button>
+                <button class="tg-btn-action" onclick="window.PlaceBotApp.triggerCommand('/reasoning')">
+                  🧠 Logical Reasoning
+                </button>
+                <button class="tg-btn-action" onclick="window.PlaceBotApp.triggerCommand('/verbal')">
+                  📚 Verbal Ability
+                </button>
+                <button class="tg-btn-action" onclick="window.PlaceBotApp.triggerCommand('/technical')">
+                  💻 Technical & Coding
+                </button>
+                <button class="tg-btn-action" onclick="window.PlaceBotApp.triggerCommand('/mock')">
+                  📝 Timed Mock Assessment
+                </button>
+                <button class="tg-btn-action" onclick="window.PlaceBotApp.triggerCommand('/progress')">
+                  📊 Performance Report
+                </button>
+              </div>
+            </div>
+
+            <div class="bubble-footer">
+              <span>10:00 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="tg-chat-input-container">
+
+        <!-- Command Suggestion Popup (appears when user types '/') -->
+        <div class="tg-commands-popup" id="commandsPopup">
+          <div class="popup-header">Suggested PlaceBot Commands</div>
+          <div class="popup-cmd-item" data-cmd="/start">
+            <span class="cmd-badge">/start</span>
+            <span class="cmd-desc">Restart PlaceBot & main topic menu</span>
+          </div>
+          <div class="popup-cmd-item" data-cmd="/aptitude">
+            <span class="cmd-badge">/aptitude</span>
+            <span class="cmd-desc">Quantitative Aptitude questions</span>
+          </div>
+          <div class="popup-cmd-item" data-cmd="/reasoning">
+            <span class="cmd-badge">/reasoning</span>
+            <span class="cmd-desc">Logical & Analytical reasoning practice</span>
+          </div>
+          <div class="popup-cmd-item" data-cmd="/verbal">
+            <span class="cmd-badge">/verbal</span>
+            <span class="cmd-desc">Verbal English & grammar drills</span>
+          </div>
+          <div class="popup-cmd-item" data-cmd="/technical">
+            <span class="cmd-badge">/technical</span>
+            <span class="cmd-desc">C++, Python, Java, SQL & OOPs questions</span>
+          </div>
+          <div class="popup-cmd-item" data-cmd="/mock">
+            <span class="cmd-badge">/mock</span>
+            <span class="cmd-desc">Launch 15-minute Timed Mock Test</span>
+          </div>
+          <div class="popup-cmd-item" data-cmd="/progress">
+            <span class="cmd-badge">/progress</span>
+            <span class="cmd-desc">Check accuracy rate & test stats</span>
+          </div>
+        </div>
+
+        <!-- Input Bar -->
+        <div class="tg-input-bar">
+          <button class="input-icon-btn" title="Commands list" onclick="document.getElementById('commandsPopup').classList.toggle('show')">
+            <i class="bi bi-slash-lg"></i>
+          </button>
+
+          <input type="text" id="chatInputField" class="chat-input-field" placeholder="Type a message or /command (e.g. /aptitude)..." autocomplete="off">
+
+          <button class="input-icon-btn d-none d-sm-flex" title="Emoji">
+            <i class="bi bi-emoji-smile"></i>
+          </button>
+
+          <button id="chatSendBtn" class="chat-send-btn" title="Send message">
+            <i class="bi bi-send-fill"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main Global JS -->
+  <script src="js/main.js"></script>
+  <!-- Chat Engine JS -->
+  <script src="js/chat.js"></script>
+</body>
+</html>

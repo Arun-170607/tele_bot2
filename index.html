@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceBot – Your Personal Placement Preparation Assistant</title>
+  <meta name="description" content="Prepare Smarter. Get Placed Faster. A Telegram-style placement preparation chatbot for aptitude, reasoning, verbal, technical and coding practice.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-placebot">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <div class="brand-icon-wrap">
+          <i class="bi bi-telegram"></i>
+        </div>
+        <span>PlaceBot</span>
+        <span class="brand-badge"><i class="bi bi-patch-check-fill"></i> BOT</span>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPlaceBotNav" aria-controls="navbarPlaceBotNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarPlaceBotNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#how-it-works">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#companies">Companies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="progress.html">Progress</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a href="chat.html" class="btn btn-telegram">
+              <i class="bi bi-send-fill"></i> Start Preparation
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="hero-pill">
+            <i class="bi bi-lightning-charge-fill"></i> Smart Campus Placement Assistant
+          </div>
+
+          <h1 class="hero-title">
+            Prepare Smarter. <br>
+            <span class="highlight">Get Placed Faster.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Your personal Telegram-style placement preparation assistant for aptitude, reasoning, verbal, technical and coding practice.
+          </p>
+
+          <div class="hero-actions">
+            <a href="chat.html" class="btn btn-telegram btn-lg">
+              <i class="bi bi-telegram"></i> Start Preparation
+            </a>
+            <a href="#features" class="btn btn-telegram-outline btn-lg">
+              <i class="bi bi-grid-fill"></i> Explore Features
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <h4>1,500+</h4>
+              <p>Placement Questions</p>
+            </div>
+            <div class="stat-item">
+              <h4>94%</h4>
+              <p>Selection Rate</p>
+            </div>
+            <div class="stat-item">
+              <h4>6 MNC</h4>
+              <p>Official Patterns</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-visual-wrap">
+            <!-- Floating Badge 1 -->
+            <div class="floating-chip chip-1">
+              <div class="chip-icon tg">
+                <i class="bi bi-check-circle-fill"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.72rem; color: var(--muted);">TCS & Infosys Ready</div>
+                <div style="color: var(--dark);">Aptitude: 92% Accuracy</div>
+              </div>
+            </div>
+
+            <!-- Vector Hero Illustration -->
+            <img src="images/hero-illustration.svg" alt="Student preparing for placement with Telegram bot illustration" class="hero-main-img">
+
+            <!-- Floating Badge 2 -->
+            <div class="floating-chip chip-2">
+              <div class="chip-icon success">
+                <i class="bi bi-award-fill"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.72rem; color: var(--muted);">Mock Assessment</div>
+                <div style="color: var(--success); font-weight:700;">Score: 88/100 • Placed!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TARGET COMPANIES ================= -->
+  <section class="companies-section" id="companies">
+    <div class="container text-center">
+      <p class="text-muted fw-bold text-uppercase small mb-3 letter-spacing-1">
+        Curated for Top Campus Recruiters & Exam Patterns
+      </p>
+      <div class="company-badge-wrap">
+        <span class="company-badge"><i class="bi bi-buildings-fill text-primary"></i> TCS NQT</span>
+        <span class="company-badge"><i class="bi bi-laptop-fill text-primary"></i> Infosys INFYTQ</span>
+        <span class="company-badge"><i class="bi bi-code-square text-primary"></i> Wipro Elite NTH</span>
+        <span class="company-badge"><i class="bi bi-cpu-fill text-primary"></i> Cognizant GenC</span>
+        <span class="company-badge"><i class="bi bi-diagram-3-fill text-primary"></i> Capgemini Exceller</span>
+        <span class="company-badge"><i class="bi bi-hdd-network-fill text-primary"></i> Accenture ASE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES SECTION ================= -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Learning System</span>
+        <h2 class="section-title">Everything You Need for Placement Preparation</h2>
+        <p class="section-desc">
+          Master every elimination round with targeted bot drills, real-time explanations, mock tests, and smart progress analytics.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1: Aptitude Practice -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon-box aptitude">
+              <i class="bi bi-calculator-fill"></i>
+            </div>
+            <h3>Aptitude Practice</h3>
+            <p>Practice quantitative aptitude questions covering Percentages, Profit & Loss, Time & Work, Speed-Distance, and Probability with formula shortcuts.</p>
+            <a href="chat.html" class="feature-link">
+              Practice Aptitude in Chat <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 2: Reasoning -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon-box reasoning">
+              <i class="bi bi-puzzle-fill"></i>
+            </div>
+            <h3>Reasoning</h3>
+            <p>Improve logical and analytical thinking with Syllogisms, Blood Relations, Number Series, Coding-Decoding, and Seating Arrangements.</p>
+            <a href="chat.html" class="feature-link">
+              Solve Reasoning Puzzles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 3: Verbal Ability -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon-box verbal">
+              <i class="bi bi-chat-quote-fill"></i>
+            </div>
+            <h3>Verbal Ability</h3>
+            <p>Improve English and communication skills through grammar error-spotting, reading comprehension passages, vocabulary, and sentence re-ordering.</p>
+            <a href="chat.html" class="feature-link">
+              Enhance Verbal Skills <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 4: Technical Questions -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon-box technical">
+              <i class="bi bi-terminal-fill"></i>
+            </div>
+            <h3>Technical Questions</h3>
+            <p>Practice C, Python, Java, SQL, DBMS, Data Structures, OOPs, and Operating Systems core concepts frequently asked in technical interviews.</p>
+            <a href="chat.html" class="feature-link">
+              Test Technical Coding <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 5: Mock Tests -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon-box mock">
+              <i class="bi bi-stopwatch-fill"></i>
+            </div>
+            <h3>Mock Tests</h3>
+            <p>Take timed placement mock tests designed to mimic authentic company online assessment rounds with countdown timers and instant grading.</p>
+            <a href="quiz.html" class="feature-link">
+              Launch Timed Mock <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 6: Progress Tracking -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon-box progress">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3>Progress Tracking</h3>
+            <p>Track scores, accuracy rates, daily streaks, and topic-wise strengths and weak areas with visual charts and AI placement readiness scores.</p>
+            <a href="progress.html" class="feature-link">
+              View Analytics Dashboard <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LIVE PREVIEW SECTION ================= -->
+  <section class="preview-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <span class="section-tag">Authentic Bot Experience</span>
+          <h2 class="section-title">Feels Just Like Telegram. Powerful for Placements.</h2>
+          <p class="section-desc mb-4">
+            No bloated dashboards. Just a natural, conversational Telegram interface with instant bot commands, inline button keyboards, explanation hints, and immediate feedback.
+          </p>
+
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+            <li class="d-flex align-items-start gap-3">
+              <div class="bg-primary-subtle text-primary p-2 rounded-circle">
+                <i class="bi bi-slash-square-fill fs-5"></i>
+              </div>
+              <div>
+                <strong>Slash Command Shortcuts:</strong>
+                <p class="text-muted small mb-0">Type <code>/aptitude</code>, <code>/technical</code>, <code>/mock</code>, or <code>/help</code> anytime.</p>
+              </div>
+            </li>
+            <li class="d-flex align-items-start gap-3">
+              <div class="bg-success-subtle text-success p-2 rounded-circle">
+                <i class="bi bi-check2-circle fs-5"></i>
+              </div>
+              <div>
+                <strong>Instant Explanation & Hints:</strong>
+                <p class="text-muted small mb-0">Learn the exact mathematical shortcuts and logical reasoning on every attempt.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="chat.html" class="btn btn-telegram btn-lg">
+            <i class="bi bi-chat-dots-fill"></i> Open PlaceBot Web
+          </a>
+        </div>
+
+        <div class="col-lg-7">
+          <!-- Telegram Preview Window Mockup -->
+          <div class="tg-preview-window">
+            <div class="tg-preview-topbar">
+              <div class="d-flex align-items-center gap-2">
+                <img src="images/bot-avatar.svg" width="34" height="34" alt="PlaceBot">
+                <div>
+                  <div class="fw-bold small">PlaceBot <i class="bi bi-patch-check-fill" style="color: #F8FAFC;"></i></div>
+                  <div style="font-size: 0.72rem; opacity: 0.9;">bot • online</div>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <i class="bi bi-search"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+            </div>
+
+            <div class="tg-preview-body">
+              <div class="preview-bubble bot">
+                <strong>PlaceBot:</strong> 👋 Welcome! Let's solve a quick Quantitative Aptitude question from TCS NQT:
+                <div class="mt-2 text-dark fw-semibold">
+                  A sum of money triples itself in 8 years at simple interest. In how many years will it become 7 times itself?
+                </div>
+                <div class="preview-options">
+                  <div class="preview-btn">A. 16 Years</div>
+                  <div class="preview-btn selected">B. 24 Years ✓</div>
+                  <div class="preview-btn">C. 28 Years</div>
+                  <div class="preview-btn">D. 32 Years</div>
+                </div>
+                <div class="bubble-meta">10:42 AM</div>
+              </div>
+
+              <div class="preview-bubble user">
+                Option B! In 8 years interest = 2P, so rate = 25%. For 7P, interest = 6P, time = 6P/(P * 25%) = 24 years.
+                <div class="bubble-meta">
+                  10:42 AM <i class="bi bi-check2-all text-primary"></i>
+                </div>
+              </div>
+
+              <div class="preview-bubble bot">
+                🎯 <strong>Bingo! 100% Correct.</strong><br>
+                Shortcut: (T2 / T1) = (N2 - 1) / (N1 - 1) = (7 - 1) / (3 - 1) = 6 / 2 = 3. So T2 = 3 * 8 = 24 years!
+                <div class="bubble-meta">10:43 AM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="features-section bg-white" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simple 4-Step Process</span>
+        <h2 class="section-title">How PlaceBot Guides You To An Offer Letter</h2>
+        <p class="section-desc">From first practice session to mock assessment to continuous improvement.</p>
+      </div>
+
+      <div class="row g-4 text-center">
+        <div class="col-md-3">
+          <div class="p-3">
+            <div class="brand-icon-wrap mx-auto mb-3" style="width:58px; height:58px; font-size:1.6rem;">
+              <i class="bi bi-chat-text-fill"></i>
+            </div>
+            <h5 class="fw-bold">1. Launch Chat</h5>
+            <p class="text-muted small">Open PlaceBot in Telegram-style interface. Type <code>/start</code> or pick any topic.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3">
+            <div class="brand-icon-wrap mx-auto mb-3" style="width:58px; height:58px; font-size:1.6rem; background: linear-gradient(135deg, #F59E0B, #d97706);">
+              <i class="bi bi-ui-checks"></i>
+            </div>
+            <h5 class="fw-bold">2. Practice Drills</h5>
+            <p class="text-muted small">Answer questions with interactive inline buttons and receive instant feedback.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3">
+            <div class="brand-icon-wrap mx-auto mb-3" style="width:58px; height:58px; font-size:1.6rem; background: linear-gradient(135deg, #EF4444, #dc2626);">
+              <i class="bi bi-alarm-fill"></i>
+            </div>
+            <h5 class="fw-bold">3. Timed Mocks</h5>
+            <p class="text-muted small">Simulate real 15-minute campus placement screening tests with our timer & poll engine.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3">
+            <div class="brand-icon-wrap mx-auto mb-3" style="width:58px; height:58px; font-size:1.6rem; background: linear-gradient(135deg, #22C55E, #16a34a);">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+            <h5 class="fw-bold">4. Track & Get Placed</h5>
+            <p class="text-muted small">Check company eligibility criteria, identify weak topics, and boost your campus placement readiness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALL TO ACTION ================= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Crack Your Dream Placement?</h2>
+        <p class="cta-subtitle">
+          Join thousands of college students practicing aptitude, logical reasoning, and technical interview questions daily on PlaceBot.
+        </p>
+        <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+          <a href="chat.html" class="btn btn-telegram btn-lg px-4">
+            <i class="bi bi-send-fill"></i> Start Chatting with PlaceBot
+          </a>
+          <a href="quiz.html" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+            <i class="bi bi-stopwatch-fill"></i> Take Mock Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <div class="brand-icon-wrap" style="width:34px; height:34px; font-size:1.1rem;">
+              <i class="bi bi-telegram"></i>
+            </div>
+            <span>PlaceBot</span>
+          </div>
+          <p class="footer-text">
+            Your Personal Placement Preparation Assistant. Designed to simulate the authentic Telegram chatbot experience for campus placement aspirants.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="footer-heading">Practice Topics</h6>
+          <ul class="footer-links">
+            <li><a href="chat.html">Quantitative Aptitude</a></li>
+            <li><a href="chat.html">Logical Reasoning</a></li>
+            <li><a href="chat.html">Verbal English</a></li>
+            <li><a href="chat.html">Technical & Coding</a></li>
+            <li><a href="chat.html">SQL & DBMS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chat.html">Telegram Bot Chat</a></li>
+            <li><a href="quiz.html">Timed Mock Test</a></li>
+            <li><a href="result.html">Scorecard & Review</a></li>
+            <li><a href="progress.html">Progress Analytics</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h6 class="footer-heading">Telegram Bot Commands</h6>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/start</span>
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/aptitude</span>
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/reasoning</span>
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/verbal</span>
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/technical</span>
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/mock</span>
+            <span class="badge bg-dark border border-secondary text-primary font-monospace">/progress</span>
+          </div>
+          <p class="small text-muted mb-0">Frontend prototype created for college campus recruitment training.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 PlaceBot • All Rights Reserved. Built for Student Campus Placements.
+        </div>
+        <div class="footer-socials">
+          <a href="chat.html" class="social-icon-btn" title="Telegram Bot"><i class="bi bi-telegram"></i></a>
+          <a href="quiz.html" class="social-icon-btn" title="Quiz Simulator"><i class="bi bi-journal-code"></i></a>
+          <a href="progress.html" class="social-icon-btn" title="Progress"><i class="bi bi-graph-up"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

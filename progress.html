@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceBot – Student Placement Preparation Progress & Analytics</title>
+  <meta name="description" content="Track your placement preparation journey with PlaceBot. Category mastery, test history, placement streak, and AI-powered recommendations.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .progress-profile-card {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+
+    .progress-profile-card::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(34, 158, 217, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .profile-avatar-wrap {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #229ED9, #1982b6);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: white;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .stat-pill-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(6px);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+
+    .stat-pill-box h3 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin: 0;
+      color: #38bdf8;
+    }
+
+    .stat-pill-box p {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin: 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .advisor-callout {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 5px solid #229ED9;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body style="background: #f1f5f9;">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-placebot">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <div class="brand-icon-wrap">
+          <i class="bi bi-telegram"></i>
+        </div>
+        <span>PlaceBot</span>
+        <span class="brand-badge"><i class="bi bi-graph-up"></i> ANALYTICS</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="chat.html" class="btn btn-telegram btn-sm">
+          <i class="bi bi-chat-dots-fill"></i> Chat with Bot
+        </a>
+        <a href="quiz.html" class="btn btn-outline-primary btn-sm rounded-pill">
+          <i class="bi bi-stopwatch-fill"></i> Take Mock
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="py-4">
+    <div class="container">
+
+      <!-- Student Profile Header Banner -->
+      <div class="progress-profile-card">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <div class="d-flex align-items-center gap-3">
+              <div class="profile-avatar-wrap">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <h3 class="fw-bold mb-0 text-white" id="progStudentName">Candidate</h3>
+                  <span class="badge bg-primary rounded-pill small" id="progLevelTitle">Placement Ready Associate</span>
+                </div>
+                <p class="text-secondary small mb-0">
+                  Target: <strong class="text-white">TCS, Infosys, Wipro, Cognizant, Amazon</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row g-2">
+              <div class="col-4">
+                <div class="stat-pill-box">
+                  <h3 id="progStreakCount">5 Days</h3>
+                  <p>Daily Streak 🔥</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat-pill-box">
+                  <h3 id="progTotalSolved">142</h3>
+                  <p>Questions Solved</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat-pill-box">
+                  <h3 id="progOverallAccuracy">78%</h3>
+                  <p>Overall Accuracy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PlaceBot AI Insights Card -->
+      <div class="advisor-callout" id="botInsightsCard">
+        <!-- Rendered dynamically by progress.js -->
+      </div>
+
+      <div class="row g-4">
+        <!-- Left Column: Category Mastery Progress -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div>
+                <h5 class="fw-bold text-dark mb-1"><i class="bi bi-pie-chart-fill text-primary me-2"></i>Category Mastery</h5>
+                <p class="text-muted small mb-0">Accuracy rate and question coverage across domains.</p>
+              </div>
+              <a href="chat.html" class="btn btn-sm btn-outline-primary rounded-pill">
+                <i class="bi bi-plus-circle"></i> Practice More
+              </a>
+            </div>
+
+            <!-- Category Bars List -->
+            <div id="progressCategoryBars">
+              <!-- Dynamically populated via progress.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Campus Readiness Checklist & Goal -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+            <h5 class="fw-bold text-dark mb-1"><i class="bi bi-award-fill text-warning me-2"></i>Campus Placement Readiness Milestones</h5>
+            <p class="text-muted small mb-4">Complete targeted drills to unlock company eligibility badges.</p>
+
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex align-items-center justify-content-between p-3 rounded-3 bg-light border">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="bg-success text-white p-2 rounded-circle">
+                    <i class="bi bi-check-lg fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Quantitative Aptitude Core</h6>
+                    <small class="text-muted">Solved 45+ questions with >75% accuracy</small>
+                  </div>
+                </div>
+                <span class="badge bg-success">Achieved</span>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between p-3 rounded-3 bg-light border">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="bg-success text-white p-2 rounded-circle">
+                    <i class="bi bi-check-lg fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Logical Reasoning Diagnostic</h6>
+                    <small class="text-muted">Mastered Syllogisms & Number Series</small>
+                  </div>
+                </div>
+                <span class="badge bg-success">Achieved</span>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between p-3 rounded-3 bg-light border">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="bg-primary text-white p-2 rounded-circle">
+                    <i class="bi bi-hourglass-split fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Technical & SQL Assessment</h6>
+                    <small class="text-muted">Solve 15 more SQL & OOPs questions</small>
+                  </div>
+                </div>
+                <span class="badge bg-primary">In Progress (72%)</span>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between p-3 rounded-3 bg-light border">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="bg-secondary text-white p-2 rounded-circle">
+                    <i class="bi bi-lock-fill fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Full MNC Mock Qualifier</h6>
+                    <small class="text-muted">Score 85%+ on 3 full-length mocks</small>
+                  </div>
+                </div>
+                <span class="badge bg-secondary">Locked</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test History Table -->
+      <div class="card border-0 shadow-sm rounded-4 p-4 mt-4 bg-white">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <h5 class="fw-bold text-dark mb-1"><i class="bi bi-clock-history text-primary me-2"></i>Placement Mock Test History</h5>
+            <p class="text-muted small mb-0">Record of your recent assessment attempts and performance ratings.</p>
+          </div>
+          <a href="quiz.html" class="btn btn-primary rounded-pill btn-sm px-3">
+            <i class="bi bi-play-fill"></i> New Mock Test
+          </a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light small text-uppercase text-muted">
+              <tr>
+                <th>Test ID</th>
+                <th>Assessment Name</th>
+                <th>Date Taken</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="testHistoryTbody">
+              <!-- Dynamically populated via progress.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Progress Data Controls -->
+        <div class="mt-4 pt-3 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <span class="text-muted small">
+            Data is securely saved in your browser's <code>localStorage</code>.
+          </span>
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline-secondary rounded-pill" id="btnSeedSampleData">
+              <i class="bi bi-arrow-clockwise"></i> Reset Sample Data
+            </button>
+            <button class="btn btn-sm btn-outline-danger rounded-pill" id="btnResetProgress">
+              <i class="bi bi-trash"></i> Clear All Progress
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-main py-4 mt-5">
+    <div class="container text-center small text-muted">
+      PlaceBot • Frontend Placement Chatbot Simulator • Built for Campus Recruitment Prep
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Global Main JS -->
+  <script src="js/main.js"></script>
+  <!-- Progress Dashboard JS -->
+  <script src="js/progress.js"></script>
+</body>
+</html>

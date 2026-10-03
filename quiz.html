@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceBot – Placement Mock Test & Telegram Quiz Simulator</title>
+  <meta name="description" content="Simulate real campus placement online assessments with PlaceBot. Timed test, telegram poll questions, multi-domain practice and instant solutions.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top App Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-placebot">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <div class="brand-icon-wrap">
+          <i class="bi bi-telegram"></i>
+        </div>
+        <span>PlaceBot</span>
+        <span class="brand-badge"><i class="bi bi-stopwatch-fill"></i> MOCK</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="chat.html" class="btn btn-telegram-outline btn-sm">
+          <i class="bi bi-chat-dots-fill"></i> Back to Chat
+        </a>
+        <a href="progress.html" class="btn btn-outline-secondary btn-sm rounded-pill d-none d-sm-inline-flex">
+          <i class="bi bi-graph-up"></i> Progress
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Quiz Page Container -->
+  <div class="quiz-page-wrapper">
+    <div class="container">
+
+      <!-- Top Control Bar Card -->
+      <div class="quiz-topbar-card">
+        <div class="quiz-meta-info">
+          <div class="quiz-category-badge" id="quizCategoryBadge">
+            <i class="bi bi-tag-fill"></i> Quantitative Aptitude
+          </div>
+          <h2 class="quiz-title-text d-none d-md-block">Campus Placement Diagnostic Test</h2>
+        </div>
+
+        <!-- Mode Switcher -->
+        <div class="quiz-mode-switch">
+          <button class="mode-btn active" id="modeExamBtn">
+            <i class="bi bi-clock-history me-1"></i> Exam Mode
+          </button>
+          <button class="mode-btn" id="modePracticeBtn">
+            <i class="bi bi-lightbulb me-1"></i> Practice Mode
+          </button>
+        </div>
+
+        <!-- Live Countdown Timer -->
+        <div class="quiz-timer-pill" id="timerPill">
+          <i class="bi bi-stopwatch timer-icon"></i>
+          <span id="timerDisplay">15:00</span>
+        </div>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="quiz-content-grid">
+
+        <!-- Left: Telegram Poll Question Card -->
+        <div class="telegram-poll-card">
+          <!-- Poll Card Header -->
+          <div class="poll-header">
+            <div class="poll-author">
+              <img src="images/bot-avatar.svg" alt="PlaceBot" class="poll-bot-avatar">
+              <div>
+                <h3 class="poll-author-name">
+                  PlaceBot Quiz Master <i class="bi bi-patch-check-fill text-primary"></i>
+                </h3>
+                <div class="poll-badge-type">
+                  <i class="bi bi-bar-chart-steps"></i> Telegram Anonymous Poll Mode
+                </div>
+              </div>
+            </div>
+
+            <div class="poll-tools">
+              <button class="btn-tool-icon" id="btnFlagQuestion" title="Flag this question for later review">
+                <i class="bi bi-bookmark-fill"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Question Body -->
+          <div class="poll-body">
+            <div class="question-number-pill" id="quizQuestionNumPill">
+              Question 1 of 10
+            </div>
+
+            <div class="poll-question-text" id="quizQuestionText">
+              Loading question from placement question bank...
+            </div>
+
+            <!-- Optional Code Block Display -->
+            <div id="quizCodeSnippetWrap" style="display: none;"></div>
+
+            <!-- Telegram Poll Radio Option Items -->
+            <div class="poll-options-list" id="quizOptionsList">
+              <!-- Dynamically populated via quiz.js -->
+            </div>
+
+            <!-- Instant Explanation for Practice Mode -->
+            <div class="quiz-instant-explanation" id="practiceExplanationBox">
+              <!-- Populated when answering in practice mode -->
+            </div>
+          </div>
+
+          <!-- Poll Footer Navigation Controls -->
+          <div class="poll-footer-controls">
+            <button class="btn-quiz-nav" id="btnPrevQuestion">
+              <i class="bi bi-arrow-left"></i> Previous
+            </button>
+
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn-quiz-nav primary" id="btnNextQuestion">
+                Next <i class="bi bi-arrow-right"></i>
+              </button>
+              <button class="btn-quiz-nav btn-submit-exam" id="btnSubmitAssessment">
+                <i class="bi bi-check2-circle"></i> Submit Test
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Question Navigator Palette -->
+        <aside class="quiz-sidebar-card">
+          <div class="navigator-title">
+            <span><i class="bi bi-grid-3x3-gap-fill text-primary me-2"></i>Question Palette</span>
+            <span class="badge bg-light text-dark border small" id="answeredStatsText">0 Answered</span>
+          </div>
+
+          <!-- Grid of 10 question numbers -->
+          <div class="navigator-grid" id="quizNavGrid">
+            <!-- Dynamically populated via quiz.js -->
+          </div>
+
+          <!-- Status Legend -->
+          <div class="navigator-legend">
+            <div class="legend-item">
+              <div class="legend-color current"></div>
+              <span>Current Question</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color answered"></div>
+              <span>Answered</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color flagged"></div>
+              <span>Flagged for Review</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color unanswered"></div>
+              <span>Not Attempted</span>
+            </div>
+          </div>
+
+          <!-- Quick Tip Card -->
+          <div class="p-3 rounded-3 bg-light border small text-muted">
+            <strong class="text-dark d-block mb-1"><i class="bi bi-info-circle text-primary"></i> Placement Exam Tip</strong>
+            Switch to <em>Practice Mode</em> anytime to see immediate formula shortcuts and explanations for every question.
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Global Main JS -->
+  <script src="js/main.js"></script>
+  <!-- Quiz Engine JS -->
+  <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#229ED9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#22C55E" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#229ED9"/>
+      <stop offset="100%" stop-color="#1479a7"/>
+    </linearGradient>
+    <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="badgeShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#229ED9" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Decorative Background Circles & Grid Dots -->
+  <circle cx="300" cy="250" r="220" fill="url(#bgGlow)"/>
+  <circle cx="500" cy="110" r="6" fill="#229ED9" opacity="0.4"/>
+  <circle cx="540" cy="160" r="4" fill="#F59E0B" opacity="0.6"/>
+  <circle cx="80" cy="380" r="8" fill="#22C55E" opacity="0.5"/>
+  <circle cx="120" cy="140" r="5" fill="#229ED9" opacity="0.5"/>
+
+  <!-- Geometric Desk / Surface Base -->
+  <path d="M 60 410 L 540 410 L 480 435 L 120 435 Z" fill="#E2E8F0" opacity="0.7"/>
+  <ellipse cx="300" cy="420" rx="220" ry="16" fill="#CBD5E1" opacity="0.4"/>
+
+  <!-- ================= STUDENT FIGURE (Vector Style) ================= -->
+  <g transform="translate(140, 160)">
+    <!-- Student Body / Hoodie -->
+    <path d="M 50 180 C 50 130 90 120 120 120 C 150 120 190 130 190 180 L 195 240 L 45 240 Z" fill="#1E293B"/>
+    <path d="M 90 120 L 120 170 L 150 120 Z" fill="#229ED9" opacity="0.3"/> <!-- Collar Accent -->
+
+    <!-- Arm reaching to laptop -->
+    <path d="M 60 170 C 60 200 90 220 130 220 L 150 215 C 130 205 105 195 90 170 Z" fill="#0F172A"/>
+    <path d="M 180 170 C 180 200 160 220 140 220 L 130 215" fill="none" stroke="#0F172A" stroke-width="16" stroke-linecap="round"/>
+
+    <!-- Student Head & Face Silhouette -->
+    <circle cx="120" cy="70" r="42" fill="#FCD34D"/> <!-- Warm skin tone -->
+    <!-- Modern Stylish Hair -->
+    <path d="M 78 70 C 78 28 100 20 128 20 C 158 20 168 36 166 65 C 156 60 144 60 130 65 C 114 62 95 65 78 70 Z" fill="#0F172A"/>
+    <!-- Glasses -->
+    <rect x="100" y="62" width="22" height="15" rx="4" fill="none" stroke="#0F172A" stroke-width="3.5"/>
+    <rect x="128" y="62" width="22" height="15" rx="4" fill="none" stroke="#0F172A" stroke-width="3.5"/>
+    <line x1="122" y1="69" x2="128" y2="69" stroke="#0F172A" stroke-width="3"/>
+    <!-- Friendly Smile -->
+    <path d="M 118 90 Q 128 98 136 90" fill="none" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ================= LAPTOP & CODE SCREEN ================= -->
+  <g transform="translate(240, 250)" filter="url(#softShadow)">
+    <!-- Screen Outer Housing -->
+    <rect x="40" y="20" width="210" height="135" rx="10" fill="url(#laptopGrad)"/>
+    <!-- Display Screen -->
+    <rect x="48" y="28" width="194" height="119" rx="6" fill="url(#screenGrad)"/>
+    <!-- Code Editor UI Elements -->
+    <circle cx="58" cy="38" r="3" fill="#EF4444"/>
+    <circle cx="68" cy="38" r="3" fill="#F59E0B"/>
+    <circle cx="78" cy="38" r="3" fill="#22C55E"/>
+
+    <!-- Simulated Placement Code / Question on screen -->
+    <text x="94" y="41" font-family="monospace" font-size="7" fill="#64748B">PlaceBot_Prep.py</text>
+    <rect x="58" y="52" width="55" height="4" rx="2" fill="#229ED9"/>
+    <rect x="118" y="52" width="40" height="4" rx="2" fill="#22C55E"/>
+    <rect x="58" y="62" width="90" height="4" rx="2" fill="#F8FAFC" opacity="0.6"/>
+    <rect x="68" y="72" width="70" height="4" rx="2" fill="#F59E0B" opacity="0.8"/>
+    <rect x="68" y="82" width="105" height="4" rx="2" fill="#229ED9" opacity="0.7"/>
+    <rect x="58" y="92" width="50" height="4" rx="2" fill="#22C55E"/>
+    <rect x="58" y="105" width="160" height="24" rx="4" fill="#229ED9" opacity="0.15"/>
+    <text x="66" y="120" font-family="sans-serif" font-weight="bold" font-size="8" fill="#229ED9">✓ Accepted: 100% Accuracy</text>
+
+    <!-- Laptop Base / Keyboard -->
+    <path d="M 15 155 L 275 155 L 295 170 L -5 170 Z" fill="#94A3B8"/>
+    <path d="M 25 155 L 265 155 L 275 167 L 15 167 Z" fill="#CBD5E1"/>
+    <!-- Trackpad -->
+    <rect x="120" y="160" width="50" height="6" rx="2" fill="#64748B" opacity="0.5"/>
+  </g>
+
+  <!-- ================= TELEGRAM CHATBOT MASCOT ================= -->
+  <g transform="translate(390, 80)" filter="url(#badgeShadow)">
+    <!-- Floating Robot / Telegram Orb -->
+    <rect x="0" y="0" width="150" height="150" rx="36" fill="#FFFFFF"/>
+    <rect x="4" y="4" width="142" height="142" rx="32" fill="#F8FAFC"/>
+    
+    <!-- Telegram Gradient Header in Bot Box -->
+    <path d="M 4 36 C 4 20 20 4 36 4 L 114 4 C 130 4 146 20 146 36 L 146 54 L 4 54 Z" fill="url(#blueGrad)"/>
+    <circle cx="30" cy="29" r="14" fill="#FFFFFF"/>
+    <!-- Paper Airplane inside mini avatar -->
+    <path d="M 37 19 L 22 28 L 27 31 L 28 36 L 31 33 L 35 36 Z" fill="#229ED9"/>
+    <text x="52" y="27" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">PlaceBot</text>
+    <text x="52" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#E0F2FE">online assistant</text>
+
+    <!-- Simulated Telegram Message Bubbles -->
+    <!-- Bot Message -->
+    <rect x="16" y="66" width="118" height="34" rx="8" fill="#E2E8F0" opacity="0.8"/>
+    <text x="24" y="80" font-family="sans-serif" font-size="8.5" font-weight="600" fill="#0F172A">Daily Placement Quiz 🔥</text>
+    <text x="24" y="92" font-family="sans-serif" font-size="7.5" fill="#64748B">Q: Find the next term...</text>
+    
+    <!-- Student Answer Bubble -->
+    <rect x="52" y="106" width="82" height="24" rx="8" fill="#229ED9"/>
+    <text x="60" y="121" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#FFFFFF">Option B: 144 ✓✓</text>
+    <circle cx="124" cy="118" r="4" fill="#22C55E"/>
+  </g>
+
+  <!-- ================= FLOATING PLACEMENT ELEMENTS ================= -->
+  <!-- 1. Offer Letter / Placement Badge -->
+  <g transform="translate(60, 80)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="125" height="60" rx="12" fill="#FFFFFF"/>
+    <circle cx="28" cy="30" r="16" fill="#DCFCE7"/>
+    <path d="M 22 30 L 26 34 L 34 26" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+    <text x="50" y="26" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#0F172A">OFFER LETTER</text>
+    <text x="50" y="42" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#22C55E">Campus Placed ⭐</text>
+  </g>
+
+  <!-- 2. Aptitude & Reasoning Floating Pill -->
+  <g transform="translate(40, 240)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="130" height="42" rx="10" fill="#FFFFFF"/>
+    <circle cx="22" cy="21" r="12" fill="#E0F2FE"/>
+    <text x="17" y="26" font-family="sans-serif" font-size="14" fill="#229ED9">🧮</text>
+    <text x="40" y="19" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0F172A">Aptitude: 98%</text>
+    <text x="40" y="32" font-family="sans-serif" font-size="8" fill="#64748B">Speed & Accuracy</text>
+  </g>
+
+  <!-- 3. Coding & Technical Floating Pill -->
+  <g transform="translate(420, 280)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="145" height="46" rx="10" fill="#FFFFFF"/>
+    <circle cx="24" cy="23" r="13" fill="#FEF3C7"/>
+    <text x="17" y="28" font-family="sans-serif" font-size="14" fill="#D97706">💻</text>
+    <text x="44" y="20" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0F172A">Python & SQL</text>
+    <text x="44" y="34" font-family="sans-serif" font-size="8" fill="#F59E0B">DSA Concepts Cleared</text>
+  </g>
+
+  <!-- 4. Top Graduation Cap Badge -->
+  <g transform="translate(260, 40)" filter="url(#softShadow)">
+    <circle cx="30" cy="30" r="26" fill="#0F172A"/>
+    <!-- Mini graduation cap in gold & white -->
+    <polygon points="30,16 48,25 30,34 12,25" fill="#FFFFFF"/>
+    <path d="M 19,30 L 19,38 C 19,43 41,43 41,38 L 41,30" fill="#FFFFFF"/>
+    <path d="M 30,25 Q 45,26 46,38" stroke="#F59E0B" stroke-width="2" fill="none"/>
+    <circle cx="46" cy="39" r="2" fill="#F59E0B"/>
+  </g>
+</svg>

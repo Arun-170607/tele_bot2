@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2bb2f0"/>
+      <stop offset="100%" stop-color="#1982b6"/>
+    </linearGradient>
+    <filter id="botShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer circle with Telegram gradient -->
+  <circle cx="50" cy="50" r="48" fill="url(#tgGrad)" filter="url(#botShadow)"/>
+  
+  <!-- Modern Paper Airplane & Bot Hybrid -->
+  <g transform="translate(18, 22) scale(0.65)">
+    <!-- Classic Telegram Paper plane geometry -->
+    <path d="M 68 8 L 8 42 L 32 54 L 38 78 L 48 64 L 62 76 L 76 12 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M 32 54 L 48 64 L 38 78 Z" fill="#b0d9ee"/>
+    <path d="M 32 54 L 68 8 L 48 64 Z" fill="#d8effa"/>
+  </g>
+  
+  <!-- Graduation / Placement Cap on top corner -->
+  <g transform="translate(48, 12) scale(0.42)">
+    <polygon points="40,5 75,25 40,45 5,25" fill="#0F172A"/>
+    <polygon points="40,5 75,25 40,45 5,25" fill="#1E293B" opacity="0.9"/>
+    <path d="M 18,34 L 18,52 C 18,62 62,62 62,52 L 62,34 C 55,40 25,40 18,34 Z" fill="#0F172A"/>
+    <!-- Tassel -->
+    <path d="M 40,25 Q 70,28 72,50" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="72" cy="52" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- Bot Eye Sparkle -->
+  <circle cx="28" cy="72" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="72" cy="70" r="2.5" fill="#ffffff" opacity="0.8"/>
+</svg>
